@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from app.core.config import settings
 from app.api.routes import auth, users, swaps, messages, admin
+from app.core.database import engine, Base
+
 
 # Logging
 logging.basicConfig(
@@ -19,6 +21,11 @@ app = FastAPI(
     docs_url=None if settings.is_production else "/docs",
     redoc_url=None if settings.is_production else "/redoc",
 )
+@app.on_event("startup")
+async def startup():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
 
 # CORS
 app.add_middleware(
@@ -42,6 +49,8 @@ app.include_router(swaps.router,    prefix="/api")
 app.include_router(messages.router, prefix="/api")
 app.include_router(admin.router,    prefix="/api")
 
+
+
 @app.get("/", tags=["Health"])
 async def root():
     return {"project": settings.PROJECT_NAME, "version": settings.VERSION, "status": "running"}
@@ -49,3 +58,5 @@ async def root():
 @app.get("/health", tags=["Health"])
 async def health():
     return {"status": "healthy", "version": settings.VERSION, "env": settings.ENVIRONMENT}
+
+
