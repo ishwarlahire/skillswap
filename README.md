@@ -1,4 +1,4 @@
-# 🔄 SkillSwap Network v2.0
+# 🔄 SkillSwap Network
 
 > **Teach what you know. Learn what you want. No money involved.**
 
@@ -14,6 +14,7 @@
 
 | Feature | Status |
 |---------|--------|
+| Production Deployment (Render + Vercel + Supabase) | ✅ |
 | JWT Auth + bcrypt passwords | ✅ |
 | Enhanced profiles (bio, social, education) | ✅ |
 | Skill management (offer/want + levels) | ✅ |
@@ -37,7 +38,7 @@
 
 ---
 
-## 🚀 Quick Start (Docker)
+## Quick Start (Docker)
 
 ```bash
 git clone https://github.com/ishwarlahire/skillswap-network.git
@@ -94,7 +95,7 @@ npm run dev                      # http://localhost:5173
 ```bash
 git init
 git add .
-git commit -m "feat: SkillSwap Network v2.0"
+git commit -m "feat: SkillSwap Network"
 git remote add origin https://github.com/ishwarlahire/skillswap-network.git
 git branch -M main
 git push -u origin main
@@ -124,9 +125,9 @@ git push -u origin main
    ALGORITHM                 = HS256
    ACCESS_TOKEN_EXPIRE_MINUTES = 30
    ENVIRONMENT               = production
-   ALLOWED_ORIGINS           = https://your-app.vercel.app
+   ALLOWED_ORIGINS           = https://skillswapnetwork.vercel.app
    ```
-5. Deploy → copy your Render URL (e.g. `https://skillswap-api.onrender.com`)
+5. Deploy → copy your Render URL (e.g. `https://skillswap.onrender.com`)
 
 ### Step 4 — Frontend on Vercel (Free)
 
@@ -140,7 +141,7 @@ git push -u origin main
    ```
 3. Environment Variables:
    ```
-   VITE_API_URL = https://skillswap-api.onrender.com
+   VITE_API_URL = https://skillswap.onrender.com
    ```
 4. Deploy!
 
@@ -243,6 +244,12 @@ pytest -v
 
 **Ishwar Lahire** — Python Backend Developer
 
-- 🌐 [ishwarlahire.vercel.app](https://ishwarlahire.vercel.app)
-- 💼 [LinkedIn](https://linkedin.com/in/ishwar-lahire)
-- 🐙 [GitHub](https://github.com/ishwarlahire)
+🌐 Portfolio: https://ishwarlahire.vercel.app
+
+💼 LinkedIn: https://linkedin.com/in/ishwar-lahire
+
+🐙 GitHub: https://github.com/ishwarlahire
+
+🚀 Live Project: https://skillswapnetwork.vercel.app
+
+📖 API Docs: https://skillswap-pft4.onrender.com/docs
